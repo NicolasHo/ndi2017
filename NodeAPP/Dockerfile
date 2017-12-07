@@ -1,8 +1,12 @@
-FROM keymetrics/pm2:latest
+FROM ubuntu
 
-LABEL maintainer="BriGIT"
+LABEL maintainer="Oliger Timothee"
 
-RUN apt update && apt upgrade -y && apt install -y python
+ADD ./app /app
+
+RUN apt-get update && apt-get install -y python apt-utils dialog openssh-client curl git &&\
+  curl -sL https://deb.nodesource.com/setup_8.x | bash - &&\
+  apt-get install -y nodejs build-essential
 
 ADD NodeAPP/app .
 
