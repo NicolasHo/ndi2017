@@ -30,16 +30,13 @@ class bdd{
 		return res;
 	}
 
-	getAlert(){
-		var db = this.bdd, res = [];
+	getAlert(cb){
+		var db = this.bdd;
 		this.bdd.serialize(function() {
 			db.all("SELECT * FROM alertes", [], function(err, rows) {
-				res = rows;
+				cb(rows);
 			});
 		});
-		console.log(res);
-		console.log(JSON.stringify(res));
-		return JSON.stringify(res);
 	}
 
 	print_alertes(){
