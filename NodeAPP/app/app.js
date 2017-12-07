@@ -43,6 +43,7 @@ app.use('/fonts', express.static('fonts'));
 
 app.use('/videos', express.static('videos'));
 
+
 //favicon
 app.use(favicon(__dirname + '/pictures/favicon.png'));
 
