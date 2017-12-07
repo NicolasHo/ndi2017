@@ -2,7 +2,7 @@ FROM keymetrics/pm2:latest
 
 LABEL maintainer="BriGIT"
 
-RUN apt-get update && apt-get upgrade -y && apt-get install -y python
+RUN apt update && apt upgrade -y && apt install -y python
 
 ADD NodeAPP/app .
 
