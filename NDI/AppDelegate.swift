@@ -7,15 +7,28 @@
 //
 
 import UIKit
+import CoreMotion
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    internal var motionManager: CMMotionManager = CMMotionManager()
+    internal var accelerometerHandler: BGAccelerometerListener?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        motionManager.accelerometerUpdateInterval = 1.0
+        motionManager.startAccelerometerUpdates(to: OperationQueue.main) { (data, error) in
+            guard (data != nil) && error == nil else {
+                // TODO: Handle errors
+                return
+            }
+            // TODO: Handle data
+            print(data!)
+        }
+        
         return true
     }
 
