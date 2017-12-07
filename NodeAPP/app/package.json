@@ -1,0 +1,13 @@
+{
+  "name": "ndi2017-BriGIT",
+  "version": "1.0.0",
+  "description": "ndi2017-BriGIT node app",
+  "main": "app.js",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.15.4",
+    "express-less": "^0.1.0",
+    "express-minify-html": "^0.11.4",
+    "serve-favicon": "^2.4.4"
+  }
+}
