@@ -3,35 +3,10 @@ let bodyParser 		= require('body-parser');
 let expressLess   = require('express-less');
 let minifyHTML    = require('express-minify-html');
 let favicon       = require('serve-favicon');
-let sqlite3 			= require('sqlite3').verbose();
+let db						= require('./bdd/bdd.js')
 let app 					= express();
 
-
-let db = new sqlite3.Database('./bdd/base.sqlite3', (err) => {
-  if (err) {
-    console.error(err.message);
-  }
-});
-
-db.serialize(function() {
-  db.run("CREATE TABLE lorem (info TEXT)");
-
-  var stmt = db.prepare("INSERT INTO lorem VALUES (?)");
-  for (var i = 0; i < 10; i++) {
-      stmt.run("Ipsum " + i);
-  }
-  stmt.finalize();
-
-  db.each("SELECT rowid AS id, info FROM lorem", function(err, row) {
-      console.log(row.id + ": " + row.info);
-  });
-});
-
-db.close();
-
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
+db.generate();
 
 app.set('views', __dirname + '/views');
 
@@ -57,17 +32,6 @@ app.use(minifyHTML({
 
 app.use(bodyParser.json());
 
-
-app.get('/test', function(req,res){
-	res.render('test/test.ejs');
-});
-
-app.get("/api/", function(req, res)  {
-	console.log("long= " + req.param('long') + " , lat=" + req.param('long'));
-	res.setHeader('Content-Type', 'application/json');
-	res.send(JSON.stringify({ a: 1 }, null, 3));
-});
-
 //Dossier statique
 app.use('/static', express.static('public'));
 
@@ -81,7 +45,7 @@ app.use('/videos', express.static('videos'));
 app.use(favicon(__dirname + '/pictures/favicon.png'));
 
 // routes
-require('./app/routes.js')(app);
+require('./app/routes.js')(app, db);
 
 // Traitement Erreur 404
 require('./app/404.js')(app);
