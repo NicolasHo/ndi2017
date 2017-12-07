@@ -1,0 +1,241 @@
+#podium {
+    display: none;
+    width: 100%;
+    table-layout: fixed;
+    font-size: 100%;
+}
+
+#podium:target {
+    display: block;
+}
+
+.places {
+    display: table;
+    width: 100%;
+}
+
+.podiumPlace {
+    display: table-cell;
+    width: 20%;
+    height: 300px;
+    text-align: center;
+    vertical-align: bottom;
+}
+
+.podiumPlace .wonTeam {
+    color: #3b95af;
+}
+
+.podiumPlace .wonTeam a {
+    display: block;
+    text-decoration: underline;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.podiumPlace .ranking {
+    width: 100%;
+    height: 0;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 10px solid #21516b;
+    overflow: hidden;
+    font-family: 'Francois One',sans-serif;
+    font-size: 3em;
+    color: #21516b;
+    background-color: #3b95af;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+#podium:hover .fifthPlace .ranking {
+    height: 40px;
+}
+
+#podium:hover .fourthPlace .ranking {
+    height: 80px;
+}
+
+#podium:hover .thirdPlace .ranking {
+    height: 120px;
+}
+
+#podium:hover .secondPlace .ranking {
+    height: 160px;
+}
+
+#podium:hover .firstPlace .ranking {
+    height: 200px;
+}
+
+#displayPodium:focus .fifthPlace .ranking {
+    height: 40px;
+}
+
+#displayPodium:focus .fourthPlace .ranking {
+    height: 80px;
+}
+
+#displayPodium:focus .thirdPlace .ranking {
+    height: 120px;
+}
+
+#displayPodium:focus .secondPlace .ranking {
+    height: 160px;
+}
+
+#displayPodium:focus .firstPlace .ranking {
+    height: 200px;
+}
+
+.podiumPlace.firstPlace .ranking {
+    text-indent: -500px;
+    background: #3b95af url('http://www.nuitdelinfo.com/img/medals/podium_1st.png') no-repeat center 0;
+}
+
+.podiumPlace.secondPlace .ranking {
+    text-indent: -500px;
+    background: #3b95af url('http://www.nuitdelinfo.com/img/medals/podium_2nd.png') no-repeat center 0;
+}
+
+.podiumPlace.thirdPlace .ranking {
+    text-indent: -500px;
+    background: #3b95af url('http://www.nuitdelinfo.com/img/medals/podium_3rd.png') no-repeat center 0;
+}
+
+#releverAbandonnerDefi {
+    width: 500px;
+    margin: auto;
+}
+
+#releverAbandonnerDefi li {
+    display: inline-block;
+    margin-right: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: red;
+}
+
+#releverAbandonnerDefi li:first-child {
+    background-color: green;
+}
+
+#releverAbandonnerDefi li a {
+    color: #fff;
+}
+
+#podium {
+    display: initial;
+    font-weight: bold;
+}
+
+#podium li {
+    display: block;
+    height: 77px;
+    padding-top: 0;
+    padding-left: 77px;
+}
+
+#podium img {
+    height: 40px;
+}
+
+#podium li a {
+    font-size: inherit;
+    color: inherit;
+}
+
+.rang1 {
+    color: #d1ba21;
+    background: url('http://www.nuitdelinfo.com/nuitinfo/_media/images:podium:podium_1st.png') no-repeat top left;
+}
+
+.rang2 {
+    color: #818181;
+    background: url('http://www.nuitdelinfo.com/nuitinfo/_media/images:podium:podium_2nd.png') no-repeat top left;
+}
+
+.rang3 {
+    color: #986035;
+    background: url('http://www.nuitdelinfo.com/nuitinfo/_media/images:podium:podium_3rd.png') no-repeat top left;
+}
+
+#podiumDefi {
+    display: table;
+    width: 50%;
+    margin: auto;
+    margin-bottom: 40px;
+    table-layout: fixed;
+    text-align: center;
+    font-size: 100%;
+}
+
+.places {
+    display: table-row;
+    width: 100%;
+}
+
+.podiumPlace {
+    display: table-cell;
+    width: 20%;
+    height: 200px;
+    text-align: center;
+    vertical-align: bottom;
+}
+
+.podiumPlace a {
+    text-decoration: underline;
+    font-size: 20px;
+    font-weight: bold;
+    color: #3b95af;
+}
+
+.podiumPlace .resultat {
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+    padding-top: 5px;
+    border-top: 10px solid #21516b;
+    overflow: hidden;
+    font-family: "comic sans ms",sans-serif;
+    font-size: 30px;
+    font-weight: normal;
+    color: #e5efa5;
+    background-color: #3b95af;
+}
+
+.podiumPlace.fourthPlace .resultat {
+    height: 0;
+}
+
+.podiumPlace.secondPlace .resultat {
+    height: 120px;
+}
+
+.podiumPlace.firstPlace .resultat {
+    height: 200px;
+}
+
+.podiumPlace.thirdPlace .resultat {
+    height: 70px;
+}
+
+.podiumPlace.fifthPlace .resultat {
+    height: 0;
+}
+
+.podiumPlace.firstPlace .resultat {
+    text-indent: -5000px;
+    background: #3b95af url('http://www.nuitdelinfo.com/nuitinfo/_media/images:podium:podium_1st.png') no-repeat center 0;
+}
+
+.podiumPlace.secondPlace .resultat {
+    text-indent: -5000px;
+    background: #3b95af url('http://www.nuitdelinfo.com/nuitinfo/_media/images:podium:podium_2nd.png') no-repeat center 0;
+}
+
+.podiumPlace.thirdPlace .resultat {
+    text-indent: -5000px;
+    background: #3b95af url('http://www.nuitdelinfo.com/nuitinfo/_media/images:podium:podium_3rd.png') no-repeat center 0;
+}

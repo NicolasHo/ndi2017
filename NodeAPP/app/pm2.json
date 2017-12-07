@@ -1,0 +1,9 @@
+{
+  "apps": [{
+    "name": "justifie",
+    "script": "app.js",
+    "env": {
+      "production": true
+    }
+  }]
+}

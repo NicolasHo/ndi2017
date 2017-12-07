@@ -1,0 +1,27 @@
+<% include ../partials/header.ejs %>
+<br><br><br><br><br><br><br>
+<div id="logs">
+	les logs a chopper depuis api.github.com
+	<br>
+</div>
+<br><br>
+
+
+
+<script type="text/javascript">
+//c'est du synchrone c'est dégueu
+	function httpGet(theUrl)
+	{
+	    var xmlHttp = new XMLHttpRequest();
+	    xmlHttp.open( "GET", theUrl, false );
+	    xmlHttp.send( null );
+	    return xmlHttp.responseText;
+	}
+	var a = httpGet("https://api.github.com/users/fraxygfx");
+	var b = JSON.parse(a);
+	
+	document.getElementById("logs").innerHTML += b.login;
+
+</script>
+
+<% include ../partials/footer.ejs %>

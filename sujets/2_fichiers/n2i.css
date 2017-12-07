@@ -1,0 +1,357 @@
+.cke_textarea_inline {
+  min-height: 4em;
+}
+
+.textArea {
+    border: 1px solid #999;
+    background-color: #fff;
+}
+
+.defiList .defi,.teamList .team,.companyList .company,.siteList .site
+{
+	border: 1px solid #CCC;
+	margin: 10px 0px;
+	padding: 5px;
+}
+.companyList .company
+{
+	width: 100%;
+}
+.siteList .site
+{
+	display: inline-block;
+	float: left;
+	margin: 1%;
+	min-width: 380px;
+	width: 100%;
+}
+.siteList .cityLetter
+{
+	font-size: 2em;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+.siteList .site:hover
+{
+	box-shadow: black 1px 1px 11px;
+}
+.defiList .title,.teamList .title,.companyList .title,.siteList .title
+{
+	border-left: 12px solid #DEE7EC;
+	display: inline-block;
+	font-size: 1.25em;
+	line-height: normal;
+	padding: 5px;
+	vertical-align: middle;
+	width: 50%;
+}
+.teamList .title
+{
+	max-width: 40%;
+}
+.teamList .slogan
+{
+	display: inline-block;
+	max-width: 30%;
+}
+.siteList .title
+{
+	font-size: 1em;
+	max-width: 40%;
+	text-align: left;
+}
+.companyList .title
+{
+	text-align: left;
+	width: 30%;
+}
+.defiList .title a,.teamList .title a,.companyList .title a,.siteList .title a
+{
+	display: block;
+	font-size: 1.75em;
+	margin-bottom: 5px;
+}
+.defiList .lot,.companyList .description
+{
+	display: inline-block;
+	padding: 5px;
+	text-align: center;
+	vertical-align: middle;
+	width: 30%;
+}
+.companyList .description
+{
+	width: 33%;
+}
+.defiList .participants,.teamList .counters,.companyList .companyLogo,.siteList .counters
+{
+	display: inline-block;
+	padding: 5px;
+	vertical-align: middle;
+	width: 10%;
+}
+.teamList .counters,.siteList .counters
+{
+	float: right;
+}
+.siteList .counters
+{
+	width: 20%;
+}
+.companyList .companyLogo
+{
+	text-align: center;
+	width: 29%;
+}
+.defiList .participants .count,.teamList .counters .count,.siteList .counters .count
+{
+	font-size: 2em;
+}
+.indexCities
+{
+	font-size: 1.2em;
+	margin: 1em;
+	text-align: center;
+}
+#podium
+{
+	display: none;
+	font-size: 100%;
+	table-layout: fixed;
+	width: 100%;
+}
+#podium:target
+{
+	display: block;
+}
+.places
+{
+	display: table;
+	width: 100%;
+}
+.podiumPlace
+{
+	display: table-cell;
+	height: 300px;
+	text-align: center;
+	vertical-align: bottom;
+	width: 20%;
+}
+.podiumPlace .wonTeam
+{
+	color: #3b95af;
+}
+.podiumPlace .wonTeam a
+{
+	display: block;
+	font-size: 20px;
+	font-weight: bold;
+	text-decoration: underline;
+}
+.podiumPlace .ranking
+{
+	background-color: #3b95af;
+	border-top: 10px solid #21516b;
+	color: #21516b;
+	font-family: 'Francois One',sans-serif;
+	font-size: 3em;
+	height: 0px;
+	margin-top: 10px;
+	moz-transition: all 0.5s ease-in-out;
+	overflow: hidden;
+	padding-top: 10px;
+	transition: all 0.5s ease-in-out;
+	webkit-transition: all 0.5s ease-in-out;
+	width: 100%;
+}
+#podium:hover .fifthPlace .ranking
+{
+	height: 40px;
+}
+#podium:hover .fourthPlace .ranking
+{
+	height: 80px;
+}
+#podium:hover .thirdPlace .ranking
+{
+	height: 120px;
+}
+#podium:hover .secondPlace .ranking
+{
+	height: 160px;
+}
+#podium:hover .firstPlace .ranking
+{
+	height: 200px;
+}
+#displayPodium:focus .fifthPlace .ranking
+{
+	height: 40px;
+}
+#displayPodium:focus .fourthPlace .ranking
+{
+	height: 80px;
+}
+#displayPodium:focus .thirdPlace .ranking
+{
+	height: 120px;
+}
+#displayPodium:focus .secondPlace .ranking
+{
+	height: 160px;
+}
+#displayPodium:focus .firstPlace .ranking
+{
+	height: 200px;
+}
+.podiumPlace.firstPlace .ranking
+{
+	background: #3b95af url('/img/medals/podium_1st.png') no-repeat center 0px;
+	text-indent: -500px;
+}
+.podiumPlace.secondPlace .ranking
+{
+	background: #3b95af url('/img/medals/podium_2nd.png') no-repeat center 0px;
+	text-indent: -500px;
+}
+.podiumPlace.thirdPlace .ranking
+{
+	background: #3b95af url('/img/medals/podium_3rd.png') no-repeat center 0px;
+	text-indent: -500px;
+}
+#releverAbandonnerDefi
+{
+	margin: auto;
+	width: 500px;
+}
+#releverAbandonnerDefi li
+{
+	background-color: red;
+	border-radius: 10px;
+	display: inline-block;
+	margin-right: 20px;
+	padding: 20px;
+}
+#releverAbandonnerDefi li:first-child
+{
+	background-color: green;
+}
+#releverAbandonnerDefi li a
+{
+	color: #fff;
+}
+#podium
+{
+	display: initial;
+	font-weight: bold;
+}
+#podium li
+{
+	display: block;
+	height: 77px;
+	padding-left: 77px;
+	padding-top: 0px;
+}
+#podium img
+{
+	height: 40px;
+}
+#podium li a
+{
+	color: inherit;
+	font-size: inherit;
+}
+.rang1
+{
+	background: url('/nuitinfo/_media/images:podium:podium_1st.png') no-repeat top left;
+	color: #d1ba21;
+}
+.rang2
+{
+	background: url('/nuitinfo/_media/images:podium:podium_2nd.png') no-repeat top left;
+	color: #818181;
+}
+.rang3
+{
+	background: url('/nuitinfo/_media/images:podium:podium_3rd.png') no-repeat top left;
+	color: #986035;
+}
+#podiumDefi
+{
+	display: table;
+	font-size: 100%;
+	margin: auto;
+	margin-bottom: 40px;
+	table-layout: fixed;
+	text-align: center;
+	width: 50%;
+}
+.places
+{
+	display: table-row;
+	width: 100%;
+}
+.podiumPlace
+{
+	display: table-cell;
+	height: 200px;
+	text-align: center;
+	vertical-align: bottom;
+	width: 20%;
+}
+.podiumPlace a
+{
+	color: #3b95af;
+	font-size: 20px;
+	font-weight: bold;
+	text-decoration: underline;
+}
+.podiumPlace .resultat
+{
+	background-color: #3b95af;
+	border-top: 10px solid #21516b;
+	color: #e5efa5;
+	font-family: "comic sans ms",sans-serif;
+	font-size: 30px;
+	font-weight: normal;
+	height: auto;
+	margin-top: 10px;
+	overflow: hidden;
+	padding-top: 5px;
+	width: 100%;
+}
+.podiumPlace.fourthPlace .resultat
+{
+	height: 0px;
+}
+.podiumPlace.secondPlace .resultat
+{
+	height: 120px;
+}
+.podiumPlace.firstPlace .resultat
+{
+	height: 200px;
+}
+.podiumPlace.thirdPlace .resultat
+{
+	height: 70px;
+}
+.podiumPlace.fifthPlace .resultat
+{
+	height: 0px;
+}
+.podiumPlace.firstPlace .resultat
+{
+	background: #3b95af url('/nuitinfo/_media/images:podium:podium_1st.png') no-repeat center 0px;
+	text-indent: -5000px;
+}
+.podiumPlace.secondPlace .resultat
+{
+	background: #3b95af url('/nuitinfo/_media/images:podium:podium_2nd.png') no-repeat center 0px;
+	text-indent: -5000px;
+}
+.podiumPlace.thirdPlace .resultat
+{
+	background: #3b95af url('/nuitinfo/_media/images:podium:podium_3rd.png') no-repeat center 0px;
+	text-indent: -5000px;
+}
