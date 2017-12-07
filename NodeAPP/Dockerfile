@@ -8,6 +8,6 @@ ADD NodeAPP/app/pm2.json .
 
 ADD NodeAPP/app/package.json .
 
-ENTRYPOINT npm i && pm2-docker start pm2.json
+ENTRYPOINT cd /app && npm i && pm2-docker start pm2.json
 
 EXPOSE  8080
