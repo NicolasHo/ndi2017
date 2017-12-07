@@ -1,28 +1,19 @@
 //	app/routes.js
-module.exports = function(app) {
+module.exports = function(app, bdd) {
 
-	//	page d'index
-	app.get('/', function(req, res) {
-		res.render('index/index.ejs');
+	// Create alert
+	app.get('/alert_create', function(req, res) {
+		bdd.print_alertes();
+		res.setHeader('Content-Type', 'application/json');
+		res.send(JSON.stringify({ code: bdd.addAlert(req.param('long'),req.param('lat')) }, null, 3));
+		bdd.print_alertes();
 	});
 
-	//	crédits (tests redir)
-	app.get('/credits', function(req,res){
-		res.render('other/credits.ejs');
-	});
-
-	//	logs des commits
-	app.get('/logs', function(req,res){
-		res.render('other/logs.ejs');
-	});
-
-	//	Strasbourg n'est jamais lourd
-	app.get('/ascmi', function(req,res){
-		res.render('ascmi.ejs');
-	});
-
-	//	Indexation google
-	app.get('/googlec0b1a061dd34c66c.html', function(req,res){
-		res.render('google/index.ejs');
+	// Get alert_list
+	app.get('/alert_list', function(req, res) {
+		res.setHeader('Content-Type', 'application/json');
+		bdd.getAlert((rows) => {
+			res.send(JSON.stringify({ alerts : rows }), null, 3);
+		});
 	});
 };
