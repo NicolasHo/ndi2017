@@ -17,7 +17,8 @@ module.exports = function(app, bdd) {
 	// Get alert_list
 	app.get('/alert_list', function(req, res) {
 		res.setHeader('Content-Type', 'application/json');
-		console.log(bdd.getAlert());
-		res.send(JSON.stringify(bdd.getAlert(), null, 3));
+		bdd.getAlert((rows) => {
+			res.send(JSON.stringify({ alerts : rows }), null, 3);
+		});
 	});
 };

@@ -15,6 +15,7 @@
 		E33047951FD9C8C20043F4B6 /* NDITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33047941FD9C8C20043F4B6 /* NDITests.swift */; };
 		E33047A01FD9C8C20043F4B6 /* NDIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E330479F1FD9C8C20043F4B6 /* NDIUITests.swift */; };
 		E33047AE1FD9CA0B0043F4B6 /* BGAccelerometerListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33047AD1FD9CA0B0043F4B6 /* BGAccelerometerListener.swift */; };
+		E36E94A71FD9EFFF00B1A866 /* BGMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36E94A61FD9EFFF00B1A866 /* BGMainController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		E330479F1FD9C8C20043F4B6 /* NDIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDIUITests.swift; sourceTree = "<group>"; };
 		E33047A11FD9C8C20043F4B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E33047AD1FD9CA0B0043F4B6 /* BGAccelerometerListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BGAccelerometerListener.swift; sourceTree = "<group>"; };
+		E36E94A61FD9EFFF00B1A866 /* BGMainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BGMainController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				E330477F1FD9C8C10043F4B6 /* AppDelegate.swift */,
 				E33047AD1FD9CA0B0043F4B6 /* BGAccelerometerListener.swift */,
 				E33047811FD9C8C10043F4B6 /* BGAlertsController.swift */,
+				E36E94A61FD9EFFF00B1A866 /* BGMainController.swift */,
 				E33047831FD9C8C10043F4B6 /* Main.storyboard */,
 				E33047861FD9C8C20043F4B6 /* Assets.xcassets */,
 				E33047881FD9C8C20043F4B6 /* LaunchScreen.storyboard */,
@@ -197,6 +200,11 @@
 					E330477B1FD9C8C10043F4B6 = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					E330478F1FD9C8C20043F4B6 = {
 						CreatedOnToolsVersion = 9.0;
@@ -265,6 +273,7 @@
 				E33047821FD9C8C10043F4B6 /* BGAlertsController.swift in Sources */,
 				E33047AE1FD9CA0B0043F4B6 /* BGAccelerometerListener.swift in Sources */,
 				E33047801FD9C8C10043F4B6 /* AppDelegate.swift in Sources */,
+				E36E94A71FD9EFFF00B1A866 /* BGMainController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ii0-bS-eyX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ii0-bS-eyX">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,37 +12,71 @@
         <!--BriGit-->
         <scene sceneID="BJ7-pd-FNI">
             <objects>
-                <viewController id="uR1-s5-oL6" sceneMemberID="viewController">
+                <viewController id="uR1-s5-oL6" customClass="BGMainController" customModule="NDI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fdj-ZS-TwX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U4Y-6V-jke">
-                                <rect key="frame" x="0.0" y="571" width="375" height="48"/>
-                                <color key="backgroundColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="eS1-GF-ZE9"/>
-                                </constraints>
-                                <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Activer mode conduite">
-                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0l7-xz-a5z">
-                                <rect key="frame" x="0.0" y="619" width="375" height="48"/>
+                                <rect key="frame" x="0.0" y="571" width="375" height="96"/>
                                 <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="nIY-to-uc1"/>
+                                    <constraint firstAttribute="height" constant="96" id="nIY-to-uc1"/>
                                 </constraints>
                                 <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Signaler une situation d'urgence">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="reportSOSSituation:" destination="uR1-s5-oL6" eventType="touchUpInside" id="XME-gu-sWZ"/>
+                                </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U4Y-6V-jke">
+                                <rect key="frame" x="0.0" y="475" width="375" height="96"/>
+                                <color key="backgroundColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="96" id="eS1-GF-ZE9"/>
+                                </constraints>
+                                <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Activer mode conduite">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleConductionMode:" destination="uR1-s5-oL6" eventType="touchUpInside" id="rdU-01-6vu"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="I9g-xH-Blb">
+                                <rect key="frame" x="16" y="80" width="343" height="140"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" text="Cliquez sur 'activer mode conduite' pour detecter automatiquement tout évenement qui peut étre dangereux " textAlignment="center" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ojg-8V-Ff7">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="78"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" text="Cliquez sur 'signaler une situation d'urgence' pour vous signaler en état d'urgence" textAlignment="center" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zq0-Yv-dwM">
+                                        <rect key="frame" x="0.0" y="78" width="343" height="62"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="62" id="qnv-fL-2DZ"/>
+                                        </constraints>
+                                        <color key="textColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="mGd-8Y-SX6"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="I9g-xH-Blb" firstAttribute="leading" secondItem="3gx-oa-Mvv" secondAttribute="leading" constant="16" id="8uq-YH-OHA"/>
                             <constraint firstItem="U4Y-6V-jke" firstAttribute="trailing" secondItem="3gx-oa-Mvv" secondAttribute="trailing" id="GPE-AM-ZFe"/>
+                            <constraint firstItem="I9g-xH-Blb" firstAttribute="top" secondItem="3gx-oa-Mvv" secondAttribute="top" constant="16" id="SEB-1K-Jdj"/>
+                            <constraint firstItem="3gx-oa-Mvv" firstAttribute="trailing" secondItem="I9g-xH-Blb" secondAttribute="trailing" constant="16" id="Th8-bz-Qox"/>
                             <constraint firstItem="0l7-xz-a5z" firstAttribute="bottom" secondItem="3gx-oa-Mvv" secondAttribute="bottom" id="Wya-8i-pD0"/>
                             <constraint firstItem="U4Y-6V-jke" firstAttribute="leading" secondItem="3gx-oa-Mvv" secondAttribute="leading" id="aMc-ya-lmu"/>
                             <constraint firstItem="0l7-xz-a5z" firstAttribute="trailing" secondItem="3gx-oa-Mvv" secondAttribute="trailing" id="kAD-cf-Msg"/>
@@ -52,15 +86,20 @@
                         <viewLayoutGuide key="safeArea" id="3gx-oa-Mvv"/>
                     </view>
                     <navigationItem key="navigationItem" title="BriGit" id="qv2-0C-AgA">
-                        <barButtonItem key="rightBarButtonItem" title="Alertes" id="mk9-UO-AOr"/>
+                        <barButtonItem key="rightBarButtonItem" title="Alertes" id="mk9-UO-AOr">
+                            <connections>
+                                <action selector="showAlertsController:" destination="uR1-s5-oL6" id="gTU-qo-8QA"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="show" id="4ep-MO-nZb"/>
+                        <outlet property="reportSOSButton" destination="0l7-xz-a5z" id="z6u-9X-1yq"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="showAlertsController" id="4ep-MO-nZb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M5i-U0-Scf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="524" y="-304"/>
+            <point key="canvasLocation" x="524" y="-304.4977511244378"/>
         </scene>
         <!--Alertes-->
         <scene sceneID="tne-QT-ifu">
