@@ -2,11 +2,11 @@ FROM keymetrics/pm2:latest
 
 LABEL maintainer="BriGIT"
 
-ADD app .
+ADD NodeAPP/app .
 
-ADD app/pm2.json .
+ADD NodeAPP/app/pm2.json .
 
-ADD app/package.json .
+ADD NodeAPP/app/package.json .
 
 ENTRYPOINT npm i && pm2-docker start pm2.json
 

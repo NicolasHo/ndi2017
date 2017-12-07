@@ -5,6 +5,8 @@ let minifyHTML    = require('express-minify-html');
 let favicon       = require('serve-favicon');
 let db						= require('./bdd/bdd.js')
 let app 					= express();
+var server = require('http').createServer(app);
+var io = require('socket.io')(server);
 
 db.generate();
 
@@ -51,4 +53,4 @@ require('./app/routes.js')(app, db);
 require('./app/404.js')(app);
 
 //Ecoute le port 8080
-app.listen(8080);
+server.listen(8080);
