@@ -11,8 +11,12 @@ import CoreLocation
 
 class BGMainController: UIViewController {
     
-    @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet var reportSOSButton: UIButton!
+    
     internal var locationManager: CLLocationManager = CLLocationManager()
+    
+    private var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .white)
+    private var conductMode: Bool = false
     
     @IBAction func showAlertsController(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "showAlertsController", sender: sender)
@@ -24,6 +28,10 @@ class BGMainController: UIViewController {
         locationManager.requestAlwaysAuthorization()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        reportSOSButton.addSubview(activityIndicator)
+        activityIndicator.centerYAnchor.constraint(equalTo: reportSOSButton.centerYAnchor).isActive = true
+        activityIndicator.trailingAnchor.constraint(equalTo: reportSOSButton.trailingAnchor, constant: -16).isActive = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,8 +39,9 @@ class BGMainController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func activateConductionMode(_ sender: UIButton) {
-        
+    @IBAction func toggleConductionMode(_ sender: UIButton) {
+        conductMode = !conductMode
+        sender.setTitle(conductMode ? "Déactiver mode conduite" : "Activer mode conduite", for: .normal)
     }
     
     @IBAction func reportSOSSituation(_ sender: Any) {
