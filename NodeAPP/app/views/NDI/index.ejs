@@ -12,6 +12,16 @@
 
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
 		<script type="text/javascript">
+			$(document).ready(function()
+			{
+				socket.emit("liste_localisations");
+				setInterval(function()
+				{
+					socket.emit("liste_localisations");
+				}, 1000);
+			});
+
+
 			var markers = [];
 
 			var socket = io.connect("http://bachaner.fr:8081");
@@ -19,6 +29,8 @@
 			{
 				retour = JSON.parse(retour);
 				var alerts = retour.alerts;
+
+				$("#liste_elems").html("");
 
 				for (var i = 0; i < alerts.length; i++)
 				{
@@ -36,7 +48,6 @@
 					$("#liste_elems").html($("#liste_elems").html() + '<a href="#!" class="collection-item" onclick="zoomTo(' + i + ')">' + day + "/" + month + "/" + year + " - " + (hours < 10 ? "0" : "") + hours + ":" + (minutes < 10 ? "0" : "") + minutes + '</a>');
 				}
 			});
-			socket.emit("liste_localisations");
 		</script>
 
 
