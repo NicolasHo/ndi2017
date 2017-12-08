@@ -12,6 +12,8 @@
 
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
 		<script type="text/javascript">
+			var markers = [];
+
 			var socket = io.connect("http://127.0.0.1:8080");
 			socket.on('liste_localisations', function(retour)
 			{
@@ -29,8 +31,9 @@
     				var minutes = date.getMinutes();
 
     				addMarker(coord);
+    				markers.push(coord);
 
-					$("#liste_elems").html($("#liste_elems").html() + '<a href="#!" class="collection-item">' + day + "/" + month + "/" + year + " - " + (hours < 10 ? "0" : "") + hours + ":" + (minutes < 10 ? "0" : "") + minutes + '</a>');
+					$("#liste_elems").html($("#liste_elems").html() + '<a href="#!" class="collection-item" onclick="zoomTo(' + i + ')">' + day + "/" + month + "/" + year + " - " + (hours < 10 ? "0" : "") + hours + ":" + (minutes < 10 ? "0" : "") + minutes + '</a>');
 				}
 			});
 			socket.emit("liste_localisations");
@@ -69,6 +72,12 @@
 		            position: location,
 		            map: map
 		        });
+		    }
+
+		    function zoomTo(id)
+		    {
+		    	map.setZoom(17);
+				map.panTo(markers[i]);
 		    }
 		</script>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATH2hrenFAvSA9GhFjiO3ADHN_RMGUF4Q&callback=initMap" async defer></script>
