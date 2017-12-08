@@ -15,8 +15,11 @@ class BGMainController: UIViewController {
     
     internal var locationManager: CLLocationManager = CLLocationManager()
     
+    private var conductModeActivated: Bool = false
+    
     private var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .white)
-    private var conductMode: Bool = false
+    
+    private var alertController = UIAlertController(title: "Title", message: "Message", preferredStyle: .alert)
     
     @IBAction func showAlertsController(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "showAlertsController", sender: sender)
@@ -40,8 +43,34 @@ class BGMainController: UIViewController {
     }
     
     @IBAction func toggleConductionMode(_ sender: UIButton) {
-        conductMode = !conductMode
-        sender.setTitle(conductMode ? "Déactiver mode conduite" : "Activer mode conduite", for: .normal)
+        if conductModeActivated {
+            
+            sender.setTitle("Activer mode conduite", for: .normal)
+            BGAccelerometerListener.sharedInstance.stopListening()
+        } else {
+            sender.setTitle("Déactiver mode conduite", for: .normal)
+            BGAccelerometerListener.sharedInstance.startListening(with: { [unowned self] (previousAcceleration, data, error) in
+                guard let data = data, let previousAcceleration = previousAcceleration, error == nil else {
+                    return
+                }
+                if abs(previousAcceleration.x - data.acceleration.x) > 0.2 ||
+                   abs(previousAcceleration.y - data.acceleration.y) > 0.2 ||
+                   abs(previousAcceleration.z - data.acceleration.z) > 0.2 {
+                    self.alertController.dismiss(animated: false, completion: nil)
+                    self.alertController = UIAlertController(title: "Ça va?", message: "Un mouvement anormal a été détecté, dites nous si tous est dans l'ordre.", preferredStyle: .alert)
+                    let okAction = UIAlertAction(title: "oui", style: .default) { (action) in
+                        self.alertController.dismiss(animated: true, completion: nil)
+                    }
+                    let dangerAction = UIAlertAction(title: "Pas du tout", style: .destructive) { (action) in
+                        self.locationManager.requestLocation()
+                    }
+                    self.alertController.addAction(okAction)
+                    self.alertController.addAction(dangerAction)
+                    self.present(self.alertController, animated: true, completion: nil)
+                }
+            })
+        }
+        conductModeActivated = !conductModeActivated
     }
     
     @IBAction func reportSOSSituation(_ sender: Any) {
@@ -60,21 +89,23 @@ extension BGMainController: CLLocationManagerDelegate {
         let session = URLSession.shared
         session.dataTask(with: request) { [unowned self] data, response, err in
                 guard err == nil else {
-                    let alertController = UIAlertController(title: "Échec", message: "Votre signalisation n'a pas abouti", preferredStyle: .alert)
+                    self.alertController.dismiss(animated: false, completion: nil)
+                    self.alertController = UIAlertController(title: "Échec", message: "Votre signalisation n'a pas abouti.", preferredStyle: .alert)
                     let doneAction = UIAlertAction(title: "ok", style: .default) { (action) in
-                        alertController.dismiss(animated: true, completion: nil)
+                        self.alertController.dismiss(animated: true, completion: nil)
                     }
-                    alertController.addAction(doneAction)
-                    self.present(alertController, animated: true, completion: nil)
+                    self.alertController.addAction(doneAction)
+                    self.present(self.alertController, animated: true, completion: nil)
                     return
                 }
             }.resume()
-        let alertController = UIAlertController(title: "Réussite", message: "Votre situation a été bien signalée", preferredStyle: .alert)
+        self.alertController.dismiss(animated: false, completion: nil)
+        self.alertController = UIAlertController(title: "Réussite", message: "Votre signalisation a été bien envoyée.", preferredStyle: .alert)
         let doneAction = UIAlertAction(title: "Ok", style: .default) { (action) in
-            alertController.dismiss(animated: true, completion: nil)
+            self.alertController.dismiss(animated: true, completion: nil)
         }
-        alertController.addAction(doneAction)
-        present(alertController, animated: true, completion: nil)
+        self.alertController.addAction(doneAction)
+        present(self.alertController, animated: true, completion: nil)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

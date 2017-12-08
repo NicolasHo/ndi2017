@@ -21,10 +21,10 @@ internal class BGAccelerometerListener: NSObject {
         motionManager.accelerometerUpdateInterval = accelerometerUpdateInterval
     }
     
-    public func startListening(with callback: @escaping (CMAccelerometerData?, Error?) -> Void) {
+    public func startListening(with callback: @escaping (CMAcceleration?, CMAccelerometerData?, Error?) -> Void) {
         motionManager.startAccelerometerUpdates(to: OperationQueue.main) { [unowned self] (data, error) in
+            callback(self.lastSavedAcceleration, data, error)
             self.lastSavedAcceleration = data?.acceleration
-            callback(data, error)
         }
     }
     

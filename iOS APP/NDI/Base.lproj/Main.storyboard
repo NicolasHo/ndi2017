@@ -101,6 +101,35 @@
             </objects>
             <point key="canvasLocation" x="524" y="-304.4977511244378"/>
         </scene>
+        <!--Apercu -->
+        <scene sceneID="zRN-S0-aTC">
+            <objects>
+                <viewController title="Apercu " id="q6l-jh-WO8" customClass="BGMapController" customModule="NDI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QQn-GC-4kl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Bqc-NI-VJo">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Bqc-NI-VJo" firstAttribute="leading" secondItem="QQn-GC-4kl" secondAttribute="leading" id="1ak-5z-76S"/>
+                            <constraint firstItem="Bqc-NI-VJo" firstAttribute="top" secondItem="TxT-BO-cLD" secondAttribute="top" id="P3J-4P-HSx"/>
+                            <constraint firstAttribute="trailing" secondItem="Bqc-NI-VJo" secondAttribute="trailing" id="oqE-fl-WI5"/>
+                            <constraint firstItem="TxT-BO-cLD" firstAttribute="bottom" secondItem="Bqc-NI-VJo" secondAttribute="bottom" id="v8N-ag-Q12"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="TxT-BO-cLD"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="Bqc-NI-VJo" id="Bme-7e-zkf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="24m-6K-1bs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1360.8" y="485.30734632683664"/>
+        </scene>
         <!--Alertes-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -130,6 +159,7 @@
                     <navigationItem key="navigationItem" title="Alertes" id="chL-16-Dt7"/>
                     <connections>
                         <outlet property="tableView" destination="JlP-mY-jt2" id="BjG-tV-ZF2"/>
+                        <segue destination="q6l-jh-WO8" kind="show" identifier="showMapController" id="TEb-rd-L2S"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -16,6 +16,8 @@
 		E33047A01FD9C8C20043F4B6 /* NDIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E330479F1FD9C8C20043F4B6 /* NDIUITests.swift */; };
 		E33047AE1FD9CA0B0043F4B6 /* BGAccelerometerListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33047AD1FD9CA0B0043F4B6 /* BGAccelerometerListener.swift */; };
 		E36E94A71FD9EFFF00B1A866 /* BGMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36E94A61FD9EFFF00B1A866 /* BGMainController.swift */; };
+		E388FE871FDA30F00041F5FF /* BGMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E388FE861FDA30F00041F5FF /* BGMapController.swift */; };
+		E388FE8A1FDA3FA80041F5FF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E388FE891FDA3FA80041F5FF /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		E33047A11FD9C8C20043F4B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E33047AD1FD9CA0B0043F4B6 /* BGAccelerometerListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BGAccelerometerListener.swift; sourceTree = "<group>"; };
 		E36E94A61FD9EFFF00B1A866 /* BGMainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BGMainController.swift; sourceTree = "<group>"; };
+		E388FE861FDA30F00041F5FF /* BGMapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BGMapController.swift; sourceTree = "<group>"; };
+		E388FE891FDA3FA80041F5FF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E388FE8A1FDA3FA80041F5FF /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +90,7 @@
 				E33047931FD9C8C20043F4B6 /* NDITests */,
 				E330479E1FD9C8C20043F4B6 /* NDIUITests */,
 				E330477D1FD9C8C10043F4B6 /* Products */,
+				E388FE881FDA3FA80041F5FF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +111,7 @@
 				E33047AD1FD9CA0B0043F4B6 /* BGAccelerometerListener.swift */,
 				E33047811FD9C8C10043F4B6 /* BGAlertsController.swift */,
 				E36E94A61FD9EFFF00B1A866 /* BGMainController.swift */,
+				E388FE861FDA30F00041F5FF /* BGMapController.swift */,
 				E33047831FD9C8C10043F4B6 /* Main.storyboard */,
 				E33047861FD9C8C20043F4B6 /* Assets.xcassets */,
 				E33047881FD9C8C20043F4B6 /* LaunchScreen.storyboard */,
@@ -129,6 +136,14 @@
 				E33047A11FD9C8C20043F4B6 /* Info.plist */,
 			);
 			path = NDIUITests;
+			sourceTree = "<group>";
+		};
+		E388FE881FDA3FA80041F5FF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E388FE891FDA3FA80041F5FF /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,6 +219,9 @@
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
 						};
 					};
 					E330478F1FD9C8C20043F4B6 = {
@@ -270,6 +288,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E388FE871FDA30F00041F5FF /* BGMapController.swift in Sources */,
 				E33047821FD9C8C10043F4B6 /* BGAlertsController.swift in Sources */,
 				E33047AE1FD9CA0B0043F4B6 /* BGAccelerometerListener.swift in Sources */,
 				E33047801FD9C8C10043F4B6 /* AppDelegate.swift in Sources */,
