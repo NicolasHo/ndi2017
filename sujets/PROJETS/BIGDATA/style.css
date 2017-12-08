@@ -1,0 +1,35 @@
+#contenu{
+	max-width: 80%;
+    margin: auto;
+}
+
+#yes{
+	margin-bottom: 6px;
+	max-width: 80px;
+}
+.sousensemble{
+	display:flex;
+}
+
+.source{
+	width: 400px;
+	padding: 5px;
+}
+
+.opinion{
+	float: right;
+}
+
+.explication{
+	width:30%;
+	margin: 10px;
+}
+
+.sourcediv{
+	width:50%;
+	margin: 10px;
+}
+.opinion{
+	width:20%;
+	margin: 10px;
+}

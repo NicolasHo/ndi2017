@@ -1,30 +1,57 @@
 <!doctype html>
 <html>
 	<head>
-		<title>NDI</title>
+		<meta charset="utf-8">
+		<title>BriGit</title>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+		<link rel="stylesheet" href="../less-css/ndi_index.css"/>
+
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
 		<script type="text/javascript">
-			var socket = io("http://127.0.0.1:8080");
-			socket.on('message', function(tmp)
+			var socket = io.connect("http://127.0.0.1:8080");
+			socket.on('liste_localisations', function(retour)
 			{
-				console.log(tmp);
+				console.log(retour);
 			});
 		</script>
+
+
 	</head>
 	<body>
-		<nav>
-			<div class="nav-wrapper">
-				<a href="#" class="brand-logo">Logo</a>
-				<ul id="nav-mobile" class="right hide-on-med-and-down">
-					<li><a href="sass.html">Sass</a></li>
-					<li><a href="badges.html">Components</a></li>
-					<li><a href="collapsible.html">JavaScript</a></li>
-				</ul>
+		<div id="page">
+			<div id="map"></div>
+			<div id="liste">
+				<nav>
+					<div class="nav-wrapper">
+						<a href="#" class="brand-logo center">BriGit</a>
+					</div>
+				</nav>
+	      		<div class="collection">
+					<a href="#!" class="collection-item">18:09:50</a>
+					<a href="#!" class="collection-item">18:00:34</a>
+					<a href="#!" class="collection-item">17:54:00</a>
+					<a href="#!" class="collection-item">17:43:13</a>
+					<a href="#!" class="collection-item">17:42:13</a>
+					<a href="#!" class="collection-item">17:33:13</a>
+					<a href="#!" class="collection-item">17:23:13</a>
+				</div>
 			</div>
-		</nav>
+		</div>
+		<script>
+			var map;
+			function initMap()
+			{
+				map = new google.maps.Map(document.getElementById('map'),
+				{
+					center: {lat: -34.397, lng: 150.644},
+					zoom: 8
+				});
+			}
+		</script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATH2hrenFAvSA9GhFjiO3ADHN_RMGUF4Q&callback=initMap" async defer></script>
 	</body>
 </html>

@@ -1,0 +1,45 @@
+<html>
+<head>
+	<meta charset="utf-8"></meta>
+	<title>coucou</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+	<script src="envoi.js"></script>
+</head>
+<body>
+	<h1>OK OR NOT OK</h1>
+	<div id="contenu">
+		<!--exemple de demande de code-->
+		<div class="ensemble" id="exemple">
+			<h4 class="titresource">J'ai un problème aidez moi</h4>
+			<div class="sousensemble">
+				<div class="explication">j'aimerai print mon message au monde mais ca ne marche pas.</div>
+				<div class="sourcediv indigo lighten-5"><code class="source">printfftf("hello wroplf");</code></div>
+				<div class="opinion">
+				<a id="yes" class="waves-effect waves-light btn green">yes</a>
+				<a id="no" class="waves-effect waves-light btn red">no</a>
+				</div>
+			</div>
+		</div>
+		<!--fin d'exemple-->
+		<div class="ensemble" id="1">
+			<h4 class="titresource">svp jui con pls</h4>
+			<div class="sousensemble">
+				<div class="explication">ma recurrence ne march pas</div>
+				<div class="sourcediv indigo lighten-5"><code class="source">
+					let fac n = n*(fac n-1);;
+				</code></div>
+				<div class="opinion">
+				<a id="yes" class="waves-effect waves-light btn green">yes</a>
+				<a id="no" class="waves-effect waves-light btn red">no</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<br><br><br>
+</body>
+</html>

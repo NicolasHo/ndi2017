@@ -8,7 +8,7 @@ let app 					= express();
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 
-db.generate();
+//db.generate();
 
 app.set('views', __dirname + '/views');
 
@@ -37,6 +37,8 @@ app.use(bodyParser.json());
 //Dossier statique
 app.use('/static', express.static('public'));
 
+app.use('/js', express.static('js'));
+
 app.use('/pictures', express.static('pictures'));
 
 app.use('/fonts', express.static('fonts'));
@@ -53,18 +55,19 @@ require('./app/routes.js')(app, db);
 // Traitement Erreur 404
 require('./app/404.js')(app);
 
-io.sockets.on('connection', function (socket, pseudo) {
-    // Dès qu'on nous donne un pseudo, on le stocke en variable de session et on informe les autres personnes
-    socket.on('nouveau_client', function(pseudo) {
-        pseudo = ent.encode(pseudo);
-        socket.pseudo = pseudo;
-        socket.broadcast.emit('nouveau_client', pseudo);
+io.sockets.on('connection', function (socket)
+{
+    socket.on("liste_localisations", function()
+    {
+        db.getAlert(function(rows)
+        {
+            socket.emit("liste_localisations", JSON.stringify({ alerts : rows }));
+        });
     });
 
-    // Dès qu'on reçoit un message, on récupère le pseudo de son auteur et on le transmet aux autres personnes
-    socket.on('message', function (message) {
-        message = ent.encode(message);
-        socket.broadcast.emit('message', {pseudo: socket.pseudo, message: message});
+    socket.on("oui", function(m)
+    {
+        socket.emit("coucou",m);
     });
 });
 
