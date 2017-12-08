@@ -33,7 +33,7 @@ class BGMainController: UIViewController {
         activityIndicator.centerYAnchor.constraint(equalTo: reportSOSButton.centerYAnchor).isActive = true
         activityIndicator.trailingAnchor.constraint(equalTo: reportSOSButton.trailingAnchor, constant: -16).isActive = true
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -48,7 +48,7 @@ class BGMainController: UIViewController {
         locationManager.requestLocation()
         activityIndicator.startAnimating()
     }
-
+    
 }
 
 extension BGMainController: CLLocationManagerDelegate {
@@ -56,8 +56,19 @@ extension BGMainController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         activityIndicator.stopAnimating()
         guard let location = locations.first else { return }
-        // TODO: deal with receirved data
-        print(location.coordinate)
+        let request = URLRequest(url: URL(string: "http://bachaner.fr:8081/alert_create?long=\(location.coordinate.longitude)&lat=\(location.coordinate.latitude)")!)
+        let session = URLSession.shared
+        session.dataTask(with: request) { [unowned self] data, response, err in
+                guard err == nil else {
+                    let alertController = UIAlertController(title: "Échec", message: "Votre signalisation n'a pas abouti", preferredStyle: .alert)
+                    let doneAction = UIAlertAction(title: "ok", style: .default) { (action) in
+                        alertController.dismiss(animated: true, completion: nil)
+                    }
+                    alertController.addAction(doneAction)
+                    self.present(alertController, animated: true, completion: nil)
+                    return
+                }
+            }.resume()
         let alertController = UIAlertController(title: "Réussite", message: "Votre situation a été bien signalée", preferredStyle: .alert)
         let doneAction = UIAlertAction(title: "Ok", style: .default) { (action) in
             alertController.dismiss(animated: true, completion: nil)
