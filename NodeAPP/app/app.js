@@ -8,7 +8,7 @@ let app 					= express();
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 
-//db.generate();
+db.generate();
 
 app.set('views', __dirname + '/views');
 

@@ -1,21 +1,12 @@
-$(document).ready(function(){
-//fonction de base pour recuperer les messages en json
-
-var a = $.get("http://ipinfo.io", function(response) {
-    return(response.ip);
-}, "jsonp");
-
-function cookies(){
-	if(document.cookie == ""){
-		document.cookie = "ab";
-	}
-}
-
 var socket = io.connect('http://Bachaner.fr:8081');
+$(document).ready(function(){
 
+	$.get("http://ipinfo.io", function(response) {
+	    console.log(response.ip);
+	}, "jsonp");
 
-//fonction d'appel a ajax
 	$('#yes').on('click',function(e){
+		console.log("fdp");
 		socket.emit("oui","m=y");
 	});
 	$('#no').on('click',function(e){

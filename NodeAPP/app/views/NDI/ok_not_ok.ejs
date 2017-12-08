@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>coucou</title>
+		
+		<link rel="stylesheet" href="../less-css/ok_not_ok.css"/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	  	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+		<script type="text/javascript">
+			var socket = io.connect('http://127.0.0.1:8080');
+			
+			$(document).ready(function()
+			{
+				//fonction de base pour recuperer les messages en json
+
+				var a = $.get("http://ipinfo.io", function(response) {
+				    return(response.ip);
+				}, "jsonp");
+
+
+				//fonction d'appel a ajax
+				$('#yes').on('click',function(e){
+						console.log(e);
+						socket.emit("oui","m=y");
+				});
+				$('#no').on('click',function(e){
+					socket.emit("oui","m=n");
+				});
+
+				socket.on("coucou",function(m){
+					console.log(m);
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<h1>OK OR NOT OK</h1>
+		<div id="contenu">
+			<!--exemple de demande de code-->
+			<div class="ensemble" id="exemple">
+				<h4 class="titresource">J'ai un problème aidez moi</h4>
+				<div class="sousensemble">
+					<div class="explication">j'aimerai print mon message au monde mais ca ne marche pas.</div>
+					<div class="sourcediv indigo lighten-5"><code class="source">printfftf("hello wroplf");</code></div>
+					<div class="opinion">
+					<a id="yes" class="waves-effect waves-light btn green">yes</a>
+					<a id="no" class="waves-effect waves-light btn red">no</a>
+					</div>
+				</div>
+			</div>
+			<!--fin d'exemple-->
+			<div class="ensemble" id="1">
+				<h4 class="titresource">svp jui con pls</h4>
+				<div class="sousensemble">
+					<div class="explication">ma recurrence ne march pas</div>
+					<div class="sourcediv indigo lighten-5"><code class="source">
+						let fac n = n*(fac n-1);;
+					</code></div>
+					<div class="opinion">
+					<a id="yes" class="waves-effect waves-light btn green">yes</a>
+					<a id="no" class="waves-effect waves-light btn red">no</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	<br><br><br>
+	</body>
+</html>
