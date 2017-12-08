@@ -8,7 +8,7 @@ let app 					= express();
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 
-db.generate();
+//db.generate();
 
 app.set('views', __dirname + '/views');
 
@@ -67,6 +67,10 @@ io.sockets.on('connection', function (socket, pseudo) {
     socket.on('message', function (message) {
         message = ent.encode(message);
         socket.broadcast.emit('message', {pseudo: socket.pseudo, message: message});
+
+    socket.on("oui", function(m){
+        socket.emit("coucou",m);
+    });
     });
 });
 
