@@ -67,7 +67,7 @@ io.sockets.on('connection', function (socket, pseudo) {
         socket.broadcast.emit('message', {pseudo: socket.pseudo, message: message});
 
     socket.on("oui", function(m){
-        socket.emit(m);
+        socket.emit("coucou",m);
     });
     });
 });

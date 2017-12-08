@@ -21,4 +21,8 @@ var socket = io.connect('http://Bachaner.fr:8081');
 	$('#no').on('click',function(e){
 		socket.emit("oui","m=n");
 	});
+
+	socket.on("coucou",function(m){
+		console.log(m);
+	});
 });
