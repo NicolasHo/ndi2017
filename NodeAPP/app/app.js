@@ -65,6 +65,10 @@ io.sockets.on('connection', function (socket, pseudo) {
     socket.on('message', function (message) {
         message = ent.encode(message);
         socket.broadcast.emit('message', {pseudo: socket.pseudo, message: message});
+
+    socket.on("oui", function(m){
+        socket.emit(m);
+    });
     });
 });
 
