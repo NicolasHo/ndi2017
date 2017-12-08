@@ -15,8 +15,25 @@
 			var socket = io.connect("http://127.0.0.1:8080");
 			socket.on('liste_localisations', function(retour)
 			{
-				console.log(retour);
+				retour = JSON.parse(retour);
+				var alerts = retour.alerts;
+
+				for (var i = 0; i < alerts.length; i++)
+				{
+					var coord = new google.maps.LatLng(alerts[i].latitude, alerts[i].longitude);
+					var date = new Date(alerts[i].date);
+    				var day = date.getDay() + 2;
+    				var month = date.getMonth() + 1;
+    				var year = date.getFullYear();
+    				var hours = date.getHours();
+    				var minutes = date.getMinutes();
+
+    				addMarker(coord);
+
+					$("#liste_elems").html($("#liste_elems").html() + '<a href="#!" class="collection-item">' + day + "/" + month + "/" + year + " - " + (hours < 10 ? "0" : "") + hours + ":" + (minutes < 10 ? "0" : "") + minutes + '</a>');
+				}
 			});
+			socket.emit("liste_localisations");
 		</script>
 
 
@@ -30,14 +47,7 @@
 						<a href="#" class="brand-logo center">BriGit</a>
 					</div>
 				</nav>
-	      		<div class="collection">
-					<a href="#!" class="collection-item">18:09:50</a>
-					<a href="#!" class="collection-item">18:00:34</a>
-					<a href="#!" class="collection-item">17:54:00</a>
-					<a href="#!" class="collection-item">17:43:13</a>
-					<a href="#!" class="collection-item">17:42:13</a>
-					<a href="#!" class="collection-item">17:33:13</a>
-					<a href="#!" class="collection-item">17:23:13</a>
+	      		<div id="liste_elems" class="collection">
 				</div>
 			</div>
 		</div>
@@ -47,10 +57,19 @@
 			{
 				map = new google.maps.Map(document.getElementById('map'),
 				{
-					center: {lat: -34.397, lng: 150.644},
-					zoom: 8
+					center: {lat: 48.858596, lng: 2.2923033},
+					zoom: 7
 				});
 			}
+
+			function addMarker(location)
+			{
+		        marker = new google.maps.Marker(
+		        {
+		            position: location,
+		            map: map
+		        });
+		    }
 		</script>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATH2hrenFAvSA9GhFjiO3ADHN_RMGUF4Q&callback=initMap" async defer></script>
 	</body>

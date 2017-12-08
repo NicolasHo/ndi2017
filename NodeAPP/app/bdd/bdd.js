@@ -15,6 +15,7 @@ class bdd{
 		  db.run("CREATE TABLE alertes (id INTEGER PRIMARY KEY, longitude FLOAT, latitude FLOAT, date TIMESTAMP)");
 
 		  var stmt = db.prepare("INSERT INTO alertes (longitude, latitude, date) VALUES (?,?,?)");
+		  stmt.run(2.2923033, 48.858596, Date.now());
 		  stmt.finalize();
 		});
 	}
