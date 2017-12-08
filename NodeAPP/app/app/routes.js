@@ -6,6 +6,11 @@ module.exports = function(app, bdd) {
 		res.render("../views/NDI/index.ejs");
 	});
 
+	app.get('/ok', function(req, res)
+	{
+		res.render("../views/NDI/ok_not_ok.ejs");
+	})
+
 	// Create alert
 	app.get('/alert_create', function(req, res) {
 		bdd.print_alertes();
