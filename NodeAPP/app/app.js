@@ -37,6 +37,8 @@ app.use(bodyParser.json());
 //Dossier statique
 app.use('/static', express.static('public'));
 
+app.use('/js', express.static('js'));
+
 app.use('/pictures', express.static('pictures'));
 
 app.use('/fonts', express.static('fonts'));
