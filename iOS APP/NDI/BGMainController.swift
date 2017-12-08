@@ -53,9 +53,9 @@ class BGMainController: UIViewController {
                 guard let data = data, let previousAcceleration = previousAcceleration, error == nil else {
                     return
                 }
-                if abs(previousAcceleration.x - data.acceleration.x) > 0.2 ||
-                   abs(previousAcceleration.y - data.acceleration.y) > 0.2 ||
-                   abs(previousAcceleration.z - data.acceleration.z) > 0.2 {
+                if abs(previousAcceleration.x - data.acceleration.x) > 10.2 ||
+                   abs(previousAcceleration.y - data.acceleration.y) > 10.2 ||
+                   abs(previousAcceleration.z - data.acceleration.z) > 10.2 { // Grande Acceleration / deceleration
                     self.alertController.dismiss(animated: false, completion: nil)
                     self.alertController = UIAlertController(title: "Ça va?", message: "Un mouvement anormal a été détecté, dites nous si tous est dans l'ordre.", preferredStyle: .alert)
                     let okAction = UIAlertAction(title: "oui", style: .default) { (action) in
