@@ -1,9 +1,9 @@
 #contenu{
-	max-width: 80%;
+	max-width: 95%;
     margin: auto;
 }
 
-#yes{
+#yes, #no{
 	margin-bottom: 6px;
 	max-width: 80px;
 }
@@ -15,21 +15,29 @@
 	width: 400px;
 	padding: 5px;
 }
-
 .opinion{
 	float: right;
 }
-
 .explication{
 	width:30%;
 	margin: 10px;
 }
-
 .sourcediv{
-	width:50%;
+	width:40%;
 	margin: 10px;
 }
 .opinion{
-	width:20%;
+	width:30%;
 	margin: 10px;
+}
+
+.commentaire{
+	display: flex;
+}
+
+.resY{
+	width: 50%;
+}
+.resN{
+	width: 50%;
 }
