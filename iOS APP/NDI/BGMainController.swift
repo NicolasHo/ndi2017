@@ -46,10 +46,10 @@ class BGMainController: UIViewController {
         if conductModeActivated {
             
             sender.setTitle("Activer mode conduite", for: .normal)
-            BGAccelerometerListener.sharedInstance.stopListening()
+            BGAccelerometerListener.shared.stopListening()
         } else {
             sender.setTitle("Déactiver mode conduite", for: .normal)
-            BGAccelerometerListener.sharedInstance.startListening(with: { [unowned self] (previousAcceleration, data, error) in
+            BGAccelerometerListener.shared.startListening(with: { [unowned self] (previousAcceleration, data, error) in
                 guard let data = data, let previousAcceleration = previousAcceleration, error == nil else {
                     return
                 }
@@ -85,20 +85,18 @@ extension BGMainController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         activityIndicator.stopAnimating()
         guard let location = locations.first else { return }
-        let request = URLRequest(url: URL(string: "http://bachaner.fr:8081/alert_create?long=\(location.coordinate.longitude)&lat=\(location.coordinate.latitude)")!)
-        let session = URLSession.shared
-        session.dataTask(with: request) { [unowned self] data, response, err in
-                guard err == nil else {
-                    self.alertController.dismiss(animated: false, completion: nil)
-                    self.alertController = UIAlertController(title: "Échec", message: "Votre signalisation n'a pas abouti.", preferredStyle: .alert)
-                    let doneAction = UIAlertAction(title: "ok", style: .default) { (action) in
-                        self.alertController.dismiss(animated: true, completion: nil)
-                    }
-                    self.alertController.addAction(doneAction)
-                    self.present(self.alertController, animated: true, completion: nil)
-                    return
+        BGDataManager.shared.createAlert(location) { (error) in
+            guard error == nil else {
+                self.alertController.dismiss(animated: false, completion: nil)
+                self.alertController = UIAlertController(title: "Échec", message: "Votre signalisation n'a pas abouti.", preferredStyle: .alert)
+                let doneAction = UIAlertAction(title: "ok", style: .default) { (action) in
+                    self.alertController.dismiss(animated: true, completion: nil)
                 }
-            }.resume()
+                self.alertController.addAction(doneAction)
+                self.present(self.alertController, animated: true, completion: nil)
+                return
+            }
+        }
         self.alertController.dismiss(animated: false, completion: nil)
         self.alertController = UIAlertController(title: "Réussite", message: "Votre signalisation a été bien envoyée.", preferredStyle: .alert)
         let doneAction = UIAlertAction(title: "Ok", style: .default) { (action) in

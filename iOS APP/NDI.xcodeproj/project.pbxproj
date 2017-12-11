@@ -18,6 +18,8 @@
 		E36E94A71FD9EFFF00B1A866 /* BGMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36E94A61FD9EFFF00B1A866 /* BGMainController.swift */; };
 		E388FE871FDA30F00041F5FF /* BGMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E388FE861FDA30F00041F5FF /* BGMapController.swift */; };
 		E388FE8A1FDA3FA80041F5FF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E388FE891FDA3FA80041F5FF /* MapKit.framework */; };
+		E398F1181FDDF61600EBFBF1 /* BGDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E398F1171FDDF61600EBFBF1 /* BGDataManager.swift */; };
+		E398F11A1FDE083E00EBFBF1 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E398F1191FDE083E00EBFBF1 /* MobileCoreServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		E36E94A61FD9EFFF00B1A866 /* BGMainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BGMainController.swift; sourceTree = "<group>"; };
 		E388FE861FDA30F00041F5FF /* BGMapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BGMapController.swift; sourceTree = "<group>"; };
 		E388FE891FDA3FA80041F5FF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		E398F1171FDDF61600EBFBF1 /* BGDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BGDataManager.swift; sourceTree = "<group>"; };
+		E398F1191FDE083E00EBFBF1 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E398F11A1FDE083E00EBFBF1 /* MobileCoreServices.framework in Frameworks */,
 				E388FE8A1FDA3FA80041F5FF /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -111,6 +116,7 @@
 				E33047AD1FD9CA0B0043F4B6 /* BGAccelerometerListener.swift */,
 				E33047811FD9C8C10043F4B6 /* BGAlertsController.swift */,
 				E36E94A61FD9EFFF00B1A866 /* BGMainController.swift */,
+				E398F1171FDDF61600EBFBF1 /* BGDataManager.swift */,
 				E388FE861FDA30F00041F5FF /* BGMapController.swift */,
 				E33047831FD9C8C10043F4B6 /* Main.storyboard */,
 				E33047861FD9C8C20043F4B6 /* Assets.xcassets */,
@@ -141,6 +147,7 @@
 		E388FE881FDA3FA80041F5FF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E398F1191FDE083E00EBFBF1 /* MobileCoreServices.framework */,
 				E388FE891FDA3FA80041F5FF /* MapKit.framework */,
 			);
 			name = Frameworks;
@@ -292,6 +299,7 @@
 				E33047821FD9C8C10043F4B6 /* BGAlertsController.swift in Sources */,
 				E33047AE1FD9CA0B0043F4B6 /* BGAccelerometerListener.swift in Sources */,
 				E33047801FD9C8C10043F4B6 /* AppDelegate.swift in Sources */,
+				E398F1181FDDF61600EBFBF1 /* BGDataManager.swift in Sources */,
 				E36E94A71FD9EFFF00B1A866 /* BGMainController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

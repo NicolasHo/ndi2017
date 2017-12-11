@@ -14,7 +14,7 @@ internal class BGAccelerometerListener: NSObject {
     public var lastSavedAcceleration: CMAcceleration?
     internal var motionManager: CMMotionManager = CMMotionManager()
 
-    internal static var sharedInstance: BGAccelerometerListener = BGAccelerometerListener()
+    internal static var shared: BGAccelerometerListener = BGAccelerometerListener()
     
     public init(with accelerometerUpdateInterval: TimeInterval = 1.0) {
         super.init()
