@@ -20,6 +20,8 @@ class BGAlertsViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
+        tableView.tableFooterView = UIView()
+        tableView.backgroundColor = UIColor.groupTableViewBackground
         BGDataManager.shared.requestAlerts { [unowned self] (error, alerts) in
             guard error == nil else { return }
             self.alerts = alerts
